@@ -1,0 +1,18 @@
+***THIS IS PSEUDOCODE FOR THE FFRUITS HIT FUNCTION***
+
+  //  Arguement Class Function(Class pointer to a parameter called other) {
+
+
+	//  when Hit set the Fruits X and Y to a random X and Y location in the game..
+
+
+}
+********************************************************************************************
+void Fruits::Hit(PhysEntity* other) {
+	
+
+	int x = Random::Instance()->RandomRange(0, Graphics::SCREEN_HEIGHT);
+	int y = Random::Instance()->RandomRange(0, Graphics::SCREEN_HEIGHT);
+
+	Position(x, y);
+}

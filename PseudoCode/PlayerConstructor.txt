@@ -1,0 +1,64 @@
+Player::Player() {
+	mTimer = Timer::Instance();
+	mInput = InputManager::Instance();
+	mAudio = AudioManager::Instance();
+
+	mVisible = false;
+
+	isHorizontal = isVertical = false;
+	up = down = left = right = false;
+	dirChanged = false;
+
+	mScore = 0;
+	mLives = 1;
+
+	
+	mShip = new Texture("Player1.png", 2, 2, 32, 32, true);
+	mShip->Parent(this);
+	mShip->Position(Vec2_Zero);
+
+	mMoveSpeed = 300.0f;
+}	
+
+***PSEUDO CODE FOR SNAKE PLAYER***
+	***THIS FUNCTION IS CALLED A CONSTRUCTOR AND WILL BE USED WHEN THE GAME STARTS TO MAKE THE SNAKE***
+
+ // Class Function().
+Player::Player() { <- open Bracket to open a function.
+
+   //	assigning an instance of a class called Timer to a member initialized integer called mTimer.
+		
+  //	assigning an instance of a class called InputManager to a member initialized integer called mInput.
+		
+
+   //	assigning an instance of a class called AudioManager to a member initialized integer called mAudio.
+		
+	
+   //	Assigning Boolean's called isHorizontal and isVertical to false to make sure its by default false.
+		
+   //	Assigning Boolean's called up, down, left and right to false to make sure its by default false.
+		
+
+   //	Assigning a Boolean called dirChanged to false to make sure its by default false.
+		
+
+   //	Assigning the players score to 0.
+		
+
+    //	assigning the snakes Lives to 1.
+		
+
+    //	Creating an image to show what the snake would look like .
+		
+
+    //	setting the constructor Player() to be the parent to the snake images.
+		
+
+    //	making the snakes position in the game to a vector zero a vectors 
+    //	are sequence containers representing arrays and its setting the snakes x and y to 0.
+		
+
+    //	setting the snakes move speed to 300.
+		
+
+}<- closing Bracket to close a function .

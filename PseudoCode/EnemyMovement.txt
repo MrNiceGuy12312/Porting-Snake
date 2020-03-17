@@ -1,0 +1,52 @@
+***THIS IS PSEUDOCODE FOR THE ENEMY MOVEMENT***
+
+  //  Arguement Class Function() {
+
+
+    //	if the players X position is Greater than the enemies X go chase the player Right.
+
+
+	 //	otherwise if the players X position is Less than the enemies X go chase the player Left.
+
+
+	//	otherwise if the players y position is greater than the enemies y go chase the player Up.
+
+	
+	//	otherwise if the players y position is Less than the enemies y go chase the player Down.
+
+
+  //	otherwise Stop moving.
+
+}
+
+void EnemyAI::HandleMovement() {
+	
+
+		if (mPlayer->Position().x > mEnemyTex->Position().x) { //if the players X is Greater than the enemys X go there
+
+			Translate(Vec2_Right * mMoveSpeed * mTimer->DeltaTime(), World);
+			std::cout << "first if statement" << std::endl;
+		}
+
+		else if (mPlayer->Position().x < mEnemyTex->Position().x) { //if the players X is Less than the enemys X go there
+
+			Translate(-Vec2_Right * mMoveSpeed * mTimer->DeltaTime(), World);
+			std::cout << "Second if statement" << std::endl;
+		}
+
+		else if (mPlayer->Position().y < mEnemyTex->Position().y) { //if the players Y is Less or Equal to the enemys X go there
+			Translate(-Vec2_Up * mMoveSpeed * mTimer->DeltaTime(), World);
+			std::cout << "Third if statement" << std::endl;
+		}
+
+		else if (mPlayer->Position().y > mEnemyTex->Position().y) { // if the players X Position is Less than or Equal to the enemys Y position go there  
+			Translate(Vec2_Up * mMoveSpeed * mTimer->DeltaTime(), World);
+			std::cout << "Fourht if statement" << std::endl;
+		}
+
+
+		else
+			SnakePart::StopMoving();
+
+		
+	}

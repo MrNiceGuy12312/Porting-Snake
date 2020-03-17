@@ -1,0 +1,47 @@
+	
+
+	***THIS IS THE PSEUDOCODE FOR THE ENEMYCONSTRUCTOR***
+
+
+// Class Function(Class pointer to a parameter called player, Class pointer to a parameter called fruit) { <- Open Bracket
+
+
+     //	a member initialized integer being assinged to an instance of a class;
+
+
+   //	a member initialized integer assignment to create a new class
+	
+
+    //	Setting the EnemyAi's speed
+
+
+	/*  giving the EnemyAi a collider so he can collide with the player to kill him
+	    assigning it its id so that it can grow size when fruits are collected and also giving it the Hostile collision layer. */
+
+} <- Closed Bracket
+
+****************************************************************************************************************************************
+EnemyAI::EnemyAI(Player*player, Fruits* fruit) {
+	mTimer = Timer::Instance();
+	mInput = InputManager::Instance();
+	
+	mPlayer = player;
+	mFruit = fruit;
+	mEnemyTex = new Texture("Player2.png", 2, 2, 32, 32, true);
+	mEnemyTex->Parent(this);
+	mEnemyTex->Position(Vec2_Zero);
+
+	Position(Graphics::SCREEN_WIDTH * 0.2f, Graphics::SCREEN_HEIGHT * 0.6f);
+
+
+
+	mMoveSpeed = 350.0f;
+
+	mHorMoveBounds = Vector2(0.0f, 1024.0f);
+	mVerMoveBounds = Vector2(896.0f, 0.0f);
+
+
+	AddCollider(new BoxCollider(mEnemyTex->ScaledDimensions()));
+
+	mId = PhysicsManager::Instance()->RegisterEntity(this, PhysicsManager::CollisionLayer::HostileProjectiles);
+}

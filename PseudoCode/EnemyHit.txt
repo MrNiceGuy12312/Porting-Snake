@@ -1,0 +1,51 @@
+	***THIS IS THE PSEUDOCODE FOR THE ENEMYHIT FUNCTION***
+
+// Arguement Class Function(Class pointer to a parameter) { <-- Open Bracket.
+
+		// if the anyType of the set parameter comes to collision with any parameter of type fruit  { <-- Open Bracket.
+	
+ 	  	   //	if the snakeparts array is empty { <-- Open Bracket.
+
+  			  //	put in a new snakepart and set its position to 0.
+			
+			}<- Closed Bracket.
+	
+		  // otherwise { <-- Open Bracket.
+		
+			// grow and place it at the last index of the snakeParts array.
+
+		 // } <- Closed Bracket.
+
+	// } <- Closed Bracket.
+	
+// } <- Closed Bracket.
+
+*******************************************************************************************************
+void EnemyAI::Hit(PhysEntity* other) {
+
+	if (typeid(*other) == typeid(Fruits)) {
+
+
+
+		   //	if the snakeparts array is empty
+		   //	put in a new snakepart and set its position to 0
+		if (mSnakeParts.empty()) { <-- Open Bracket 
+
+			mSnakeParts.push_back(new SnakePart(this, mMoveSpeed));
+			mSnakeParts[0]->Position(Position());
+
+		}
+
+		else {
+			unsigned lastIndex = mSnakeParts.size() - 1;
+			mSnakeParts.push_back(new SnakePart(mSnakeParts[lastIndex], mMoveSpeed));
+			lastIndex = mSnakeParts.size() - 1;
+			mSnakeParts[lastIndex]->Position(mSnakeParts[lastIndex - 1]->Position());
+
+		} 
+
+
+
+	} 
+
+} 
