@@ -1,0 +1,48 @@
+***THIS IS PSEUDOCODE FOR THE FFRUITS CONSTRUCTOR***
+
+  //  Class Function() {
+
+	//  create the image through a member initialized integer creating a new class instance.
+	
+	
+	 //  Set the Constructor as the parent node to this new instance.
+
+		
+	  //  set the vector position of this fruit to 0.
+
+	
+	     //  set the Fruits Y position to a random Y position in the Game.
+
+	
+ 		//  set the Fruits X position to a random X position in the Game.
+		
+
+		//  Give the fruit a collider to make sure the player collects it when the player collides with it.
+
+
+	 //  give it the id and collision layer of Hostile.
+
+
+}
+*******************************************************************************************************************
+Fruits::Fruits()
+{
+	mTexture = new Texture("Fruits.png", 2, 2, 25, 25, true);
+	mTexture->Parent(this);
+	mTexture->Position(Vec2_Zero);
+
+
+	mTextureTwo = new Texture("Fruits.png", 2, 2, 25, 25, true);
+	mTextureTwo->Parent(this);
+	mTextureTwo->Position(Vec2_Zero);
+
+	int x = Random::Instance()->RandomRange(0, Graphics::SCREEN_HEIGHT);
+	int y = Random::Instance()->RandomRange(0, Graphics::SCREEN_HEIGHT);
+
+	Position((float)x, (float)y);
+
+	AddCollider(new BoxCollider(mTexture->ScaledDimensions()));
+	AddCollider(new BoxCollider(mTextureTwo->ScaledDimensions()));
+
+	mId = PhysicsManager::Instance()->RegisterEntity(this, PhysicsManager::CollisionLayer::Hostile);
+}
