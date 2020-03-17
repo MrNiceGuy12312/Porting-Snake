@@ -1,0 +1,74 @@
+	***THIS IS THE PSEUDOCODE FOR THE MAIN MENU CONSTRUCTOR***
+
+Class Function() {
+
+	
+	// Creating images for the PlayButton in the Main Menu Screen, the Controls button and the Cursor image.
+
+
+	
+	 // Make the Constructor the Parent Node of Main Menu Screen, the Controls button and the Cursor image.
+
+
+
+	  //  Set The Positions for Main Menu Screen, the Controls button and the Cursor image.
+
+
+ 	  // Start Audio.
+
+	// create the images for the bottom bar entities Set the constructor to be the parent node of them all and set their positions aswell.
+
+
+	// set the Cursors position and change the selected mode to 0 so that if its 1 the cursor knows where to go through another function.
+
+}
+***************************************************************************************************************************************************
+StartScreen::StartScreen() {
+
+	
+	mPlayMode = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
+	mOnePlayerMode = new Texture("Play", "emulogic.ttf", 36, { 250,250,250 });
+	mControls = new Texture("Controls", "emulogic.ttf", 36, { 230,230,230 });
+	mCursor = new Texture("Cursor.png");
+
+	mPlayMode->Parent(this);
+	mOnePlayerMode->Parent(mPlayMode);
+	mControls->Parent(mPlayMode);
+	mCursor->Parent(mPlayMode);
+
+	mOnePlayerMode->Position(0.0f, -100.0f);
+	mControls->Position(0.0f, -30.0f);
+	mCursor->Position(-175.0f, -100.0);
+	
+	//play Audio
+	mAudio->PlayMusic("MUS/awesomeness.wav", 0);
+
+	//BOTTOM BAR ENTITIES
+	
+	mBottomBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.7f);
+	mNamco = new Texture("nokia", "namco__.ttf", 36, { 200,0,0 });
+	mDates = new Texture("NOKIA 1997.", "emulogic.ttf", 32, { 230,230,230 });
+	mRights = new Texture("ALL RIGHTS RESERVED", "emulogic.ttf", 32, { 230,230,230 });
+
+	mBottomBar->Parent(this);
+	mNamco->Parent(mBottomBar);
+	mDates->Parent(mBottomBar);
+	mRights->Parent(mBottomBar);
+
+	mNamco->Position(Vec2_Zero);
+	mDates->Position(0.0f, 90.0f);
+	mRights->Position(0.0f, 170.0f);
+
+
+	//LOGO ENTITIES
+	mLogo = new Texture("Snake", "emulogic.ttf", 52, { 200,0,0 });
+
+	mLogo->Parent(this);
+
+	mLogo->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.20f);
+
+	mCursorStartPos = mCursor->Position(Local);
+	mCursorOffset = Vector2(0.0f, 70.0f);
+	mSelectedMode = 0;
+
+}

@@ -1,0 +1,34 @@
+Class Constructor(the right paramaters) {
+	//  Create an instance of a class called timer to have a counter for how long we want the READY label to stay for.
+
+
+ 	//  Set the Timer to 0.0.
+
+
+	 // using member initialized variables to create a new instance of an enemy fruits and player .
+
+
+       // create the READY image through a member initialized variable and set the size of the label.
+
+	  // Set the Current state as Running.
+}
+*******************************************************************************************************************************
+Level::Level(int stage, PlayTopBar* sideBar, Player* player, Fruits * fruit) {
+	mTimer = Timer::Instance();
+	
+
+	mLabelTimer = 0.0f;
+	
+	mPlayer = new Player();
+	mTexture = new Fruits();
+	mTextureTwo = new Fruits();
+	mEnemyTex = new EnemyAI(player, fruit);
+
+	mReadyLabel = new Texture("READY", "emulogic.ttf", 32, { 150,0,0 });
+	mReadyLabel->Parent(this);
+	mReadyLabel->Position(Graphics::SCREEN_WIDTH * 0.4f, Graphics::SCREEN_HEIGHT * 0.5f);
+]
+
+	mCurrentState = Running;
+	
+}
