@@ -138,31 +138,15 @@ public class PlayerController : MonoBehaviour
             {
                // anim.SetBool("IsIdle", false);
                // anim.SetBool("IsWalking", true);
-                transform.Translate((Input.GetAxis("Horizontal")) * speed * Time.deltaTime, 0f, 0f);
+               transform.Translate((Input.GetAxis("Horizontal")) * speed * Time.deltaTime, 0f, 0f);
 
                 if (Input.GetKey("a"))
                 {
-                 //   anim.SetBool("IsRight", false);
-                   // anim.SetBool("IsLeft", true);
+            
 
                 }
                 else if (Input.GetKey("d"))
                 {
-                  //  anim.SetBool("IsRight", true);
-                   // anim.SetBool("IsLeft", false);
-                    if (!alreadyPlayedRun)
-                    {
-
-                        alreadyPlayedRun = true;
-
-                    }
-                    else
-                    {
-                      //  anim.SetBool("IsIdle", true);
-                      //  anim.SetBool("IsWalking", false);
-                        alreadyPlayedRun = false;
-                        // RunningAudio.Pause();
-                    }
                 }
                 else
                 {
@@ -186,73 +170,17 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log(collision.gameObject.tag);
             // am I colliding with the ground or a box?
-            if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Object" || collision.gameObject.tag == "ButtonHead")
+            if (collision.gameObject.tag == "Fruit" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Object" || collision.gameObject.tag == "ButtonHead")
             {
-              /*  if (delay)
-                {
-                    if (collision.gameObject.tag == "ButtonHead")
-                    {
-                        ++delayCount;
-                    }
-                    if (delayAnim)
-                    {
-                        delayAnimCount += (int)(1.0f * Time.deltaTime);
-                    }
-
-                    // add to delay timer
-                    if (GetComponent<Rigidbody2D>().velocity.y == 0)
-                    {
-                        ++delayCount;
-                    }
-                    if (delayAnim)
-                    {
-                        delayAnimCount += (int)(1.0f * Time.deltaTime);
-                    }
-
-                    anim.SetBool("IsJumping", false);
-                    anim.SetBool("IsFalling", false);
-                    anim.SetBool("IsLanding", true);
-                    isFalling = false;
-
-                    if (delayAnimCount >= delayAnimLength)
-                    {
-                        anim.SetBool("IsLanding", false);
-                        anim.SetBool("IsIdle", true);
-                        delayAnimCount = 0;
-                        delayAnim = false;
-                    }
-
-                    // is our timer done?
-                    if (delayCount >= delayLength)
-                    {
-                        // refresh jump
-                        delayCount = 0;
-                        isGrounded = true;
-                        delay = false;
-                    }
-                }*/
+           
             }
         }
 
         void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Object" || collision.gameObject.tag == "ButtonHead")
+            if (collision.gameObject.tag == "Fruit" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Object" || collision.gameObject.tag == "ButtonHead")
             {
-                if (Input.GetButton("Jump"))
-                {
-
-                }
-                else
-                {
-                    /*if (!delay)
-                    {
-                        isFalling = true;
-                        delay = true;
-                        delayAnim = true;
-                        isGrounded = false;
-                        anim.SetBool("IsFalling", true);
-                    }*/
-                }
+               
             }
         }
 
@@ -260,15 +188,6 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
          {
              m_health = 0;
-         }
-
-         public void LevelReset()
-         {
-             // call function in level manager to reset room
-             Application.LoadLevel(Application.loadedLevel);
-
-             // any animations play now
-             Debug.Log("Player has died");
          }
     
 }

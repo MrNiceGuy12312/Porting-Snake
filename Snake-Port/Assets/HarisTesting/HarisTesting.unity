@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 1
-  forcetoAdd: 20
+  forcetoAdd: 12
   Volume: 2
   alreadyPlayedDeath: 0
   alreadyPlayedRun: 0
