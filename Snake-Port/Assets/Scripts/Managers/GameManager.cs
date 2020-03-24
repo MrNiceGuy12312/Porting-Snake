@@ -21,7 +21,11 @@ public class GameManager : MonoBehaviour
 
     // buttons
     public GameObject m_exitButton;
-    public GameObject m_restartButton;
+    public GameObject m_playButton;
+    public GameObject m_controlsButton;
+    public GameObject m_backButton;
+    public GameObject m_creditsButton;
+   
 
     private void Awake()
     {
@@ -43,10 +47,30 @@ public class GameManager : MonoBehaviour
         // do main menu stuff here
     }
 
-    public void RetryButtonPressed()
+   
+
+    public void PlayButtonPressed()
     {
-        // restart the level
-        Application.LoadLevel(Application.loadedLevel);
+        // Play Button is pressed
+        SceneManager.LoadScene("HarisTesting");
+    }
+
+    public void ControlsButtonPressed()
+    {
+        // Controls Button is pressed
+        SceneManager.LoadScene("Controls");
+    }
+
+    public void CreditsButtonPressed()
+    {
+        // Credits Button is pressed
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void BackButtonPressed()
+    {
+        // Play Button is pressed
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ExitGamePressed()
@@ -54,13 +78,5 @@ public class GameManager : MonoBehaviour
         // exit the game
         Debug.Log("Exit button clicked!");
         Application.Quit();
-    }
-
-    public void Win()
-    {
-        // do level completion stuff here
-        scene = SceneManager.GetActiveScene();
-        index = scene.buildIndex;
-        SceneManager.LoadScene(index += 1, LoadSceneMode.Single);
     }
 }
