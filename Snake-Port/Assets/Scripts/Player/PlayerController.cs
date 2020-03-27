@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -174,16 +174,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
     }
 
-
-       /* void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Fruit" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Object" || collision.gameObject.tag == "ButtonHead")
-            {
-               
-            }
-        }*/
 
         
     public void KillPlayer()

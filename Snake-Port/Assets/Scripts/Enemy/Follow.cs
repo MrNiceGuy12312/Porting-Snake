@@ -15,6 +15,7 @@ public class Follow : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+     
     }
 
     // Update is called once per frame

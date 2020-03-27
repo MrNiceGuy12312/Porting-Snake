@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+
     public void ExitGamePressed()
     {
         // exit the game
