@@ -7,7 +7,7 @@ public class Follow : MonoBehaviour
 
     public Transform player;
     private Vector2 movement;
-    public float movespeed = 5f;
+    public float movespeed = 19f;
     private Rigidbody2D rb;
 
 

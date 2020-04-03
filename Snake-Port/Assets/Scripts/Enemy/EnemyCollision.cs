@@ -13,7 +13,10 @@ public class EnemyCollision : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
+        if (other.gameObject.CompareTag("Fruits"))
+        {
+            Destroy(other.gameObject);
+        }
     }
     // Start is called before the first frame update
     void Start()

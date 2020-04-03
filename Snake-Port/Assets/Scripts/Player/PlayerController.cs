@@ -12,6 +12,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField]
+    private Rigidbody2D Fruits;
+
+    bool Left, Right, Up, Down;
     // animation
     private Animator anim;
 
@@ -26,16 +31,6 @@ public class PlayerController : MonoBehaviour
     public float forcetoAdd = 10;
     private bool isFalling = false;
 
-    /*// delay                                  not sure if needed--------------------
-    private int delayLength = 12;
-    private float delayDeath = 3.5f;
-    private int delayAnimLength = 6;
-    private int delayAnimCount = 0;
-    private int delayCount = 0;
-    private float deathCount = 0.0f;
-    private bool delay = false;
-    private bool delayAnim = false;
-    //-----------------------------------------------------------------------------*/
     // life and reset
     public static float m_health = 1;
     public static bool isDead = false;
@@ -49,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         moveinAir = true;
-        speed = 0f;
+        speed = 10f;
         m_health = 100f;
         isDead = false;
     }
@@ -58,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
 
         anim = GetComponent<Animator>();
+        Instantiate(Fruits);
     }
 
     // Update is called once per frame
@@ -70,62 +66,17 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsFalling", false);
         }
 
-
-        /* if (!isDead)
-         {
-             // player jump
-             /*if (Input.GetButton("Jump") && isGrounded)
-             {
-                 //anim.SetBool("IsJumping", true);
-                 isGrounded = false;
-                 /*delay = true;
-                 delayAnim = true;
-                 GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
-             }
-
-             // player suduko
-             if (Input.GetKey(m_die))
-             {
-                 m_health = 0;
-             }
-         }*/
-
         // player run
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // run
-            speed = 10;
-        }
-        else
-        {
-            // walk
-            speed = 5;
-        }
+  
 
         // check if player is alive
         if (m_health <= 0)
         {
-            // anim.SetBool("IsDead", true);
-            //deathCount += Time.deltaTime;
-            //Debug.Log(deathCount);
-
             isDead = true;
             if (!alreadyPlayedDeath)
             {
                 alreadyPlayedDeath = true;
             }
-            /* if (deathCount >= delayDeath)
-             {
-                // LevelReset();
-                 deathCount = 0.0f;
-                 isDead = false;
-                 m_health = 100;
-             }*/
-        }
-
-        if (isFalling)
-        {
-
         }
     }
 
@@ -133,11 +84,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead)
         {
-            // player movement
             if (moveinAir)
             {
-                // anim.SetBool("IsIdle", false);
-                // anim.SetBool("IsWalking", true);
                 transform.Translate((Input.GetAxis("Horizontal")) * speed * Time.deltaTime, 0f, 0f);
 
                 if (Input.GetKey("a"))
@@ -151,16 +99,31 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     if (Input.GetKey(KeyCode.A))
+                    {
                         GetComponent<Rigidbody2D>().AddForce(-Vector2.right * forcetoAdd);
+                        bool Right = false;
+                        bool Left = true;
+                    } 
 
                     if (Input.GetKey(KeyCode.D))
+                    {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.right * forcetoAdd);
+                        bool Right = true;
+                        bool Left = false;
+                    }
 
                     if (Input.GetKey(KeyCode.W))
+                    {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.up * forcetoAdd);
+                        bool Up = true;
+                        bool Down = false;
+                    }
 
-                    if (Input.GetKey(KeyCode.S))
+                    if (Input.GetKey(KeyCode.S)) { 
                         GetComponent<Rigidbody2D>().AddForce(-Vector2.up * forcetoAdd);
+                        bool Down = true;
+                        bool Up = false;
+                    }
                 }
             }
         }
@@ -173,6 +136,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Fruits"))
         {
             Destroy(other.gameObject);
+            Instantiate(Fruits);
+           
         }
 
         if (other.gameObject.CompareTag("Enemy"))
