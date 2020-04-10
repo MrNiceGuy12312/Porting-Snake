@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FruitRand : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float dirX, dirY, movespeed;
-    
+    private int snakeBodySize;
+    private List<Vector2Int> snakeMovePositionList;
+
     [SerializeField]
     private Rigidbody2D Fruits;
 
+    [SerializeField]
+    private Rigidbody2D SnakeBody;
 
+    private Vector2 currentPos;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +31,7 @@ public class FruitRand : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal") * movespeed;
         dirY = Input.GetAxisRaw("Vertical") * movespeed;
-        
+     
     }
 
     private void FixedUpdate()
@@ -65,6 +70,7 @@ public class FruitRand : MonoBehaviour
         }
         ScoreScript.scoreValue += 10;
         SpawnFruit();
+        Instantiate(SnakeBody);
     }
 
 }

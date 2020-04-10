@@ -591,6 +591,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ad77082d8e37f408fbf4032b7475b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  dirX: 0
+  dirY: 0
+  movespeed: 0
+  snakeBodySize: 0
+  snakeMovePositionList: []
   Fruits: {fileID: 2950966472409395150, guid: 98eacb0b89671754299cd102b62b9ded, type: 3}
 --- !u!1 &249142868
 GameObject:
@@ -1898,6 +1904,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ad77082d8e37f408fbf4032b7475b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  dirX: 0
+  dirY: 0
+  movespeed: 0
+  snakeBodySize: 0
+  snakeMovePositionList: []
   Fruits: {fileID: 2950966472409395150, guid: 98eacb0b89671754299cd102b62b9ded, type: 3}
 --- !u!50 &1278263068
 Rigidbody2D:
