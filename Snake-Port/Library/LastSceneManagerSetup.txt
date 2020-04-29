@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/HarisTesting/HarisTesting.unity
+- path: Assets/Anims/RAW/AnimTest.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
